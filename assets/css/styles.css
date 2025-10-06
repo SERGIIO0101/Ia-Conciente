@@ -1,0 +1,1059 @@
+/* ==========================
+   ESTILOS BASE
+   ========================== */
+
+:root {
+  --color-bg: #0b1e2d;          /* Fondo principal oscuro */
+  --color-accent: #00c896;      /* Verde brillante IA + sostenibilidad */
+  --color-light: #f7f4ef;       /* Neutro claro */
+  --color-text: #c7d3d9;        /* Texto principal */
+  --color-title: #ffffff;       /* Títulos claros */
+  --color-dark: #07141f;        /* Fondo más profundo */
+  --transition: all 0.3s ease;  /* Suavidad en animaciones */
+}
+
+/* Reset rápido */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ==========================
+   ENCABEZADO Y MENÚ
+   ========================== */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(11, 30, 45, 0.95);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  z-index: 1000;
+}
+
+.navbar .container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+}
+
+.logo {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+.nav-menu ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: var(--color-text);
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+  color: var(--color-accent);
+}
+
+/* ==========================
+   HERO PRINCIPAL
+   ========================== */
+
+.hero {
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 2rem;
+  position: relative; /* Clave para el posicionamiento de hijos */
+  overflow: hidden;   /* Evita desbordes del canvas */
+}
+
+.hero-content {
+  max-width: 800px; /* Restauramos el ancho correcto para centrar el texto */
+  z-index: 1;         /* Mantenemos el texto por encima de todo */
+}
+.hero h2 {
+  color: var(--color-title);
+  font-size: 2.2rem;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  color: var(--color-text);
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.btn-hero {
+  background: var(--color-accent);
+  color: var(--color-dark);
+  padding: 0.8rem 1.6rem;
+  border: none;
+  border-radius: 25px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.btn-hero:hover {
+  background: #00ffb0;
+}
+
+.hero canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* Enviamos la animación al fondo */
+}
+
+/* ==========================
+   SECCIONES GENERALES
+   ========================== */
+
+.section {
+  padding: 6rem 2rem;
+}
+
+.section h2 {
+  color: var(--color-title);
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.8rem;
+  margin-bottom: 1.2rem;
+  text-align: center;
+}
+
+.section p {
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  text-align: center;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ==========================
+   IA EN LA MODA
+   ========================== */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  align-items: center;
+}
+
+/* Contenedor del texto, ahora con flexbox para alineación interna */
+.grid .text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra verticalmente el contenido */
+  height: 100%;
+  text-align: left; /* Aseguramos que el texto esté alineado a la izquierda */
+}
+
+.grid .text ul {
+  margin-top: 1rem;
+  padding-left: 1.2rem; /* Mantenemos la sangría de la lista */
+}
+
+.grid .text li {
+  margin-bottom: 0.5rem;
+}
+
+.grid .image img {
+  width: 100%;
+  border-radius: 10px;
+}
+/* Centra el título "Prototipos Digitales" */
+.grid .text h3 {
+  text-align: center;
+}
+/* ==========================
+   GALERÍA DE PROTOTIPOS
+   ========================== */
+.gallery-container {
+  margin-top: 4rem;
+}
+
+.gallery-title {
+  text-align: center;
+  color: var(--color-title);
+  margin-bottom: 2rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.5rem;
+}
+
+.prototipos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.prototipo-item {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+}
+
+.prototipo-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.prototipo-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(to top, rgba(11, 30, 45, 0.9), transparent);
+  color: var(--color-title);
+  padding: 2rem 1rem 1rem;
+  transform: translateY(100%);
+  transition: transform 0.4s ease;
+}
+
+.prototipo-item:hover .prototipo-info {
+  transform: translateY(0);
+}
+
+.prototipo-item:hover img {
+  transform: scale(1.1);
+}
+
+.prototipo-info h4 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+/* ==========================
+   STEAM+H
+   ========================== */
+
+.bg-light {
+  background: #102a3a;
+}
+
+.steam-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.steam-item {
+  background: var(--color-dark);
+  padding: 1.5rem;
+  border-radius: 10px;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.steam-item:hover {
+  transform: translateY(-5px);
+  background: #123341;
+}
+
+.steam-item h3 {
+  color: var(--color-accent);
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ==========================
+   IMPACTO
+   ========================== */
+
+.impacto-grid-extendido {
+  display: grid;
+  grid-template-columns: 1fr; /* Una columna por defecto */
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+/* En pantallas más grandes, usamos dos columnas */
+@media (min-width: 768px) {
+  .impacto-grid-extendido {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.impacto-columna {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.impacto-item-extendido {
+  background-color: var(--color-dark);
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: left;
+  border-bottom: 3px solid var(--color-accent);
+}
+
+.impacto-item-extendido h3 {
+  color: var(--color-accent);
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 1rem;
+}
+/* ==========================
+   OBJETIVOS
+   ========================== */
+.objetivos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+  text-align: left;
+}
+
+.objetivo-item {
+  background: var(--color-dark);
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.objetivo-item h3 {
+  color: var(--color-accent);
+  margin-bottom: 1rem;
+}
+
+.objetivo-item ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.objetivo-item li {
+  margin-bottom: 0.5rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.objetivo-item li::before {
+  content: '✔';
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+}
+
+/* ==========================
+   APLICACIONES DE LA IA
+   ========================== */
+.aplicaciones-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.aplicacion-item {
+  background: var(--color-dark);
+  padding: 2rem;
+  border-radius: 10px;
+  border-top: 3px solid var(--color-accent);
+}
+
+.aplicacion-item h3 {
+  color: var(--color-title);
+  margin-bottom: 1rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.aplicacion-item p {
+  text-align: left;
+  margin-bottom: 0;
+}
+
+/* ==========================
+   PROCESO (DIAGRAMA DE FLUJO)
+   ========================== */
+.proceso-diagrama {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.proceso-nodo {
+  background-color: var(--color-dark);
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+  flex-grow: 1;
+  flex-basis: 0; /* Permite que todos los nodos tengan el mismo tamaño */
+  min-height: 180px; /* Asegura una altura mínima uniforme */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.proceso-nodo h3 {
+  color: var(--color-accent);
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.proceso-flecha {
+  font-size: 2.5rem;
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+/* Media query para apilar el diagrama en pantallas pequeñas */
+@media (max-width: 992px) {
+  .proceso-diagrama {
+    flex-direction: column;
+  }
+  .proceso-nodo {
+    width: 100%;
+    min-height: auto; /* Reseteamos la altura mínima */
+  }
+  .proceso-flecha {
+    transform: rotate(90deg); /* Giramos la flecha */
+    margin: 0.5rem 0;
+  }
+}
+
+    /* ==========================
+   ESTILOS DE LA SECCIÓN DE FUENTES
+   ========================== */
+
+.fuentes-lista {
+  max-width: 800px;
+  margin: 2rem auto 0;
+  text-align: left;
+}
+
+.fuentes-lista ul {
+  list-style: none;
+  padding: 0;
+}
+
+.fuentes-lista li {
+  background-color: var(--color-dark);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  border-left: 3px solid var(--color-accent);
+}
+
+.fuentes-lista li strong {
+  color: var(--color-light);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+/* ==========================
+   CONTACTO Y CRÉDITOS
+   ========================== */
+
+.bg-dark {
+  background: #061118;
+}
+
+.equipo {
+  list-style: none;
+  text-align: center;
+  margin-top: 1.5rem;
+  color: var(--color-light);
+}
+
+.equipo li {
+  margin-bottom: 0.4rem;
+}
+
+.creditos {
+  text-align: center;
+  color: #7c8c92;
+  font-size: 0.9rem;
+  margin-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 1rem;
+}
+/* Estilos para el Menú de Hamburguesa */
+.menu-hamburguesa {
+  display: none; /* Oculto por defecto en escritorio */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001; /* Debe estar por encima del menú */
+}
+
+.menu-hamburguesa .linea {
+  width: 28px;
+  height: 3px;
+  background-color: var(--color-light);
+  margin: 5px 0;
+  transition: var(--transition);
+}
+/* ==========================
+   RESPONSIVE
+   ========================== */
+
+@media (max-width: 768px) {
+  /* Hacemos visible el botón de hamburguesa */
+  .menu-hamburguesa {
+    display: block;
+  }
+
+  /* Estilos del menú de navegación para móvil */
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    left: -100%; /* Lo ocultamos fuera de la pantalla */
+    width: 100%;
+    height: 100vh;
+    background: rgba(11, 30, 45, 0.98);
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: left 0.4s ease-in-out;
+  }
+
+  /* Clase que se añade con JS para mostrar el menú */
+  .nav-menu.activo {
+    left: 0;
+  }
+
+  .nav-menu ul {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .nav-menu a {
+    font-size: 1.5rem;
+  }
+
+  .hero h2 {
+    font-size: 1.8rem;
+  }
+}
+/* ==========================
+   CONCLUSIONES Y FUTURO
+   ========================== */
+.conclusion-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+  text-align: left;
+}
+
+.conclusion-item {
+  background-color: var(--color-dark);
+  padding: 2rem;
+  border-radius: 8px;
+  border-left: 4px solid var(--color-accent);
+}
+
+.conclusion-item h3 {
+  color: var(--color-accent);
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 1rem;
+}
+
+/* ==========================
+   ESTILOS DEL REPORTAJE DIGITAL (BLOQUE COMPLETO Y CORREGIDO)
+   ========================== */
+
+.reportaje-cuerpo {
+  max-width: 800px; /* Ancho de columna ideal para lectura */
+  margin: 0 auto;
+}
+
+.reportaje-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.reportaje-header h1 {
+  font-family: 'Poppins', sans-serif;
+  color: var(--color-title);
+  font-size: 2.2rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.reportaje-subtitulo {
+  font-size: 1.1rem;
+  color: var(--color-text);
+}
+
+.reportaje-intro {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--color-light);
+  margin-bottom: 2.5rem;
+}
+
+.reportaje-cuerpo h3 {
+  font-family: 'Poppins', sans-serif;
+  color: var(--color-accent);
+  font-size: 1.5rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.reportaje-cuerpo p {
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.reportaje-figura {
+  margin: 2.5rem 0;
+}
+
+.reportaje-figura img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.reportaje-figura figcaption {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--color-text);
+  margin-top: 0.5rem;
+}
+
+.reportaje-cita {
+  border-left: 3px solid var(--color-accent);
+  padding-left: 1.5rem;
+  margin: 2.5rem 0;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--color-light);
+}
+
+/* Estilos para el Gráfico de Datos Clave */
+/* Estilos para el Gráfico de Datos Clave */
+.reportaje-datos-clave {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin: 3rem 0;
+  text-align: center;
+}
+.dato-item {
+  background-color: var(--color-dark);
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+.dato-numero {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-accent);
+}
+.dato-descripcion {
+  font-size: 0.9rem;
+  color: var(--color-text);
+}
+
+/* ==========================
+   ESTILOS DE LA TABLA COMPARATIVA
+   ========================== */
+
+.tabla-container {
+  margin: 3rem 0;
+  overflow-x: auto; /* Permite scroll horizontal en móviles */
+}
+
+.tabla-container h3 {
+  text-align: center;
+  color: var(--color-title);
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 1.5rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px; /* Ancho mínimo para evitar que se comprima demasiado */
+}
+
+table th, table td {
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: left;
+}
+
+table thead {
+  background-color: var(--color-dark);
+}
+
+table th {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+table tbody tr:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+table td:nth-child(3) {
+  font-weight: 700;
+  color: var(--color-light);
+}
+
+table strong {
+  color: var(--color-light);
+}
+
+/* ==========================
+   ESTILOS DE LA SECCIÓN DE REFLEXIÓN
+   ========================== */
+
+.reportaje-reflexion {
+  margin: 3rem 0;
+  padding: 2rem;
+  background-color: var(--color-dark);
+  border-radius: 8px;
+  border-left: 4px solid var(--color-accent);
+}
+
+.reportaje-reflexion h3 {
+  margin-top: 0; /* Reseteamos el margen superior para esta sección */
+}
+
+.reportaje-reflexion p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-light);
+}
+
+/* Estilo para el autor de la cita */
+.reportaje-cita cite {
+  display: block;
+  margin-top: 1rem;
+  font-style: normal;
+  font-size: 1rem;
+  text-align: right;
+  color: var(--color-text);
+}
+
+/* ===== ESTILOS DE LA GALERÍA QUE FALTABAN (AÑADIDOS AQUÍ) ===== */
+.prototipo-item {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+}
+
+.prototipo-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.prototipo-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(to top, rgba(11, 30, 45, 0.9), transparent);
+  color: var(--color-title);
+  padding: 2rem 1rem 1rem;
+  transform: translateY(100%);
+  transition: transform 0.4s ease;
+}
+
+.prototipo-item:hover .prototipo-info {
+  transform: translateY(0);
+}
+
+.prototipo-item:hover img {
+  transform: scale(1.1);
+}
+
+.prototipo-info h4 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+/* ==========================
+   EFECTOS DE ENTRADA (JS)
+   ========================== */
+.oculto {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animación del icono de hamburguesa a "X" */
+.menu-hamburguesa.activo .linea:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.menu-hamburguesa.activo .linea:nth-child(2) {
+  opacity: 0;
+}
+.menu-hamburguesa.activo .linea:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+.dato-item {
+  background-color: var(--color-dark);
+  padding: 1.5rem;
+  border-radius: 8px;
+  /* Estas son las líneas nuevas/modificadas */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ==========================
+   ESTILOS DE LA SECCIÓN EDUCACIÓN PARA EL FUTURO (DISEÑO MEJORADO)
+   ========================== */
+
+.reportaje-futuro {
+  margin: 3rem 0;
+  padding: 0; /* Eliminamos el padding anterior */
+}
+
+.reportaje-futuro h3 {
+  text-align: center;
+  margin-bottom: 2.5rem; /* Aumentamos el espacio inferior */
+}
+
+.futuro-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* Una columna en móviles */
+  gap: 2rem;
+}
+
+/* Dos columnas en pantallas más grandes */
+@media (min-width: 768px) {
+  .futuro-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.futuro-item {
+  background-color: var(--color-dark);
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+  border-top: 3px solid var(--color-accent);
+}
+
+.futuro-icono {
+  margin-bottom: 1rem;
+}
+
+.futuro-icono svg {
+  width: 40px;
+  height: 40px;
+  color: var(--color-accent);
+}
+
+.futuro-item h4 {
+  font-family: 'Poppins', sans-serif;
+  color: var(--color-title);
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.futuro-item p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--color-text);
+  text-align: left; /* Alineamos el párrafo a la izquierda para mejor lectura */
+}
+
+/* ==========================
+   SECCIÓN DE EQUIPO
+   ========================== */
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.team-card {
+  background-color: var(--color-dark);
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.team-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.team-info {
+  padding: 1.5rem 1rem;
+}
+
+.team-name {
+  font-family: 'Poppins', sans-serif;
+  color: var(--color-title);
+  font-size: 1.1rem;
+  margin: 0 0 0.25rem 0;
+}
+
+.team-role {
+  color: var(--color-accent);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* ==========================
+   FOOTER
+   ========================== */
+
+.footer {
+  background-color: var(--color-dark);
+  padding: 4rem 0 2rem;
+  color: var(--color-text);
+}
+
+.footer-contenido {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+  text-align: left;
+}
+
+.footer-columna h3 {
+  font-family: 'Poppins', sans-serif;
+  color: var(--color-title);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.footer-columna h4 {
+  font-family: 'Poppins', sans-serif;
+  color: var(--color-light);
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.footer-columna p {
+  line-height: 1.7;
+}
+
+.equipo-lista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.equipo-lista li {
+  margin-bottom: 0.5rem;
+}
+
+/* Estilo añadido para los enlaces en la lista de navegación del footer */
+.equipo-lista a {
+  color: var(--color-text);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.equipo-lista a:hover {
+  color: var(--color-accent);
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.social-links a {
+  color: var(--color-light);
+  transition: var(--transition);
+}
+
+.social-links a:hover {
+  color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.creditos {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.back-to-top {
+  color: var(--color-text);
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.back-to-top:hover {
+  color: var(--color-accent);
+}
